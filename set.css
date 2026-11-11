@@ -1,0 +1,173 @@
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#070707;
+  color:#fff;
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Efectos de fondo difuminados */
+body::before{
+  content:'';position:fixed;left:-150px;top:0;
+  width:400px;height:100%;
+  background:radial-gradient(circle at left, rgba(0,200,100,0.28) 0%, transparent 70%);
+  filter:blur(40px);pointer-events:none
+}
+body::after{
+  content:'';position:fixed;right:-100px;top:0;
+  width:350px;height:100%;
+  background:radial-gradient(circle at right, rgba(0,255,136,0.15) 0%, transparent 70%);
+  filter:blur(40px);pointer-events:none
+}
+
+/* Cabecera */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 45px;
+  position:relative;
+  z-index:2;
+}
+.top h1{
+  font-family:'Anton',sans-serif;
+  font-size:58px;
+  line-height:1;
+  letter-spacing:1px;
+}
+.top .page{
+  font-size:18px;
+}
+
+/* Contenido Principal (Grid imagen + tabla) */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap:40px;
+  padding:10px 45px 30px;
+  position:relative;
+  z-index:2;
+  align-items: center;
+}
+
+.img-box{
+  border-radius:24px;
+  overflow:hidden;
+  border:1.5px solid #1a1a1a;
+  background:#000;
+  height: 100%;
+  max-height: 350px;
+}
+.img-box img{
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* Estilo de la tabla / celdas */
+.table{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.cell{
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cell.q{
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: #00ff88;
+  border-left: 4px solid #00ff88;
+}
+.cell.a{
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Sección inferior / Botones */
+.bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 30px 45px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+/* Botones generales */
+.btn, .btn-contact{
+  border: 2px solid #fff;
+  border-radius: 50px;
+  padding: 14px 28px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover{
+  background: #fff;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* Estilo especial para el botón de contacto */
+.btn-contact{
+  background: #00ff88;
+  border-color: #00ff88;
+  color: #000;
+  font-weight: 700;
+}
+.btn-contact:hover{
+  background: transparent;
+  color: #00ff88;
+  transform: translateY(-3px);
+}
+
+/* Diseño responsivo para celulares y tablets */
+@media(max-width: 900px){
+  .top{
+    padding: 20px 20px;
+  }
+  .top h1{
+    font-size: 40px;
+  }
+  .grid{
+    grid-template-columns: 1fr;
+    padding: 10px 20px;
+    gap: 20px;
+  }
+  .img-box{
+    max-height: 250px;
+  }
+  .bottom{
+    padding: 20px;
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn, .btn-contact{
+    width: 100%;
+    text-align: center;
+  }
+}
