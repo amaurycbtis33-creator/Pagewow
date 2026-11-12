@@ -34,8 +34,10 @@
 
 <div class="form-container" style="max-width: 600px; margin: 30px auto; background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 8px; border: 1px solid #444; font-family: 'Inter', sans-serif;">
   <h2 style="color: #fff; margin-top: 0; font-size: 20px; text-align: center; margin-bottom: 20px;">ENVÍANOS TU REPORTE O IDEA</h2>
-  <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-    
+  
+  <!-- Se agregó id="reporteForm" y se quitó action/method -->
+  <form id="reporteForm" style="display: flex; flex-direction: column; gap: 15px;">
+
     <div style="display: flex; flex-direction: column; gap: 5px;">
       <label for="nombre" style="color: #ccc; font-size: 14px; font-weight: bold;">Tu Nombre:</label>
       <input type="text" id="nombre" name="nombre" placeholder="Ej. juan" required style="padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid #555; color: #fff; border-radius: 4px;">
@@ -82,6 +84,13 @@
   <a href="index.html" class="btn">Menu</a>
   <a href="contenido.html" class="btn">Wow</a>
 </div>
+
+<script>
+  document.getElementById('reporteForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que la página se recargue o cambie de URL
+    this.reset();           // Borra todos los datos escritos en el formulario
+  });
+</script>
 
 </body>
 </html>
